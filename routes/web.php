@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Login Page
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.login');
 });
+
+
+//Recovery Password
+Route::get('/forgot-password', [AdminController::class, 'forgot_password']);
+Route::get('/recover-pass', [AdminController::class, 'recover_pass']);
+Route::get('/update-new-pass', [AdminController::class, 'update_new_pass']);
+Route::get('/reset-new-pass', [AdminController::class, 'reset_new_pass']);
